@@ -2,8 +2,7 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"ALUMCallback": "00_core.ipynb",
-         "VATCallback": "00_core.ipynb"}
+index = {"VATCallback": "00_core.ipynb"}
 
 modules = ["core.py"]
 
