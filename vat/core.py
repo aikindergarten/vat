@@ -3,8 +3,6 @@
 __all__ = ['hook_out', 'KL', 'adv_project', 'compute_adversarial_loss', 'ALUMCallback', 'VATCallback']
 
 # Cell
-from torch import linalg as LA
-
 from fastai.basics import *
 from fastai.test_utils import synth_learner
 from fastai.callback.all import *
@@ -32,11 +30,16 @@ def adv_project(grad, norm_type='inf', eps=1e-6):
 
 # Cell
 def compute_adversarial_loss(model:nn.Module, embed:Tensor, logits:Tensor,
+                             special_tokens_mask=None, token_type_mask=None,
                              noise_var:float=1e-5, step_size:float=1e-3, k:int=1,
                              noise_gamma:float=1e-6):
-    "This is nice docstring"
+    "Computes adversarial loss on iteratively refined perturbation"
     noise = embed.data.new(embed.size()).normal_(0, noise_var)
     noise.requires_grad_();
+    if special_tokens_mask is not None:
+        noise = noise*special_tokens_mask
+    if token_type_mask is not None:
+        nosie = noise*token_type_mask
 
     for _ in range(k):
         newembed = embed + noise
@@ -45,7 +48,7 @@ def compute_adversarial_loss(model:nn.Module, embed:Tensor, logits:Tensor,
         adv_loss = KL(adv_logits, logits.detach(), reduction="batchmean")
         delta_grad, = torch.autograd.grad(adv_loss, noise, only_inputs=True)
 
-        norm = LA.norm(delta_grad)
+        norm = torch.linalg.norm(delta_grad)
         if (torch.isnan(norm) or torch.isinf(norm)):
             break
 
@@ -65,10 +68,12 @@ class ALUMCallback(Callback):
     run_valid = False
     order = GradientAccumulation.order-1
     @delegates(compute_adversarial_loss)
-    def __init__(self, m:nn.Module, alpha:float=1., start_epoch:int=1, **kwargs):
+    def __init__(self, m:nn.Module, alpha:float=1., start_epoch:int=1,
+                 mask_special_tokens:bool=False, one_token_type=False, **kwargs):
         self.hook = None
         self.adv_loss_func = partial(compute_adversarial_loss, **kwargs) if kwargs else compute_adversarial_loss
         self._do_vat=True
+        self.special_tokens_mask, self.token_type_mask = None, None
         store_attr()
 
     def before_batch(self):
@@ -76,11 +81,21 @@ class ALUMCallback(Callback):
             self.hook = Hook(self.m, hook_out)
             print(f'Starting virtual adversarial training at epoch {self.epoch}')
 
+        if self.mask_special_tokens:
+            self.special_tokens_mask = self.xb[0].pop('special_tokens_mask', None)
+            if self.special_tokens_mask is not None:
+                self.special_tokens_mask = (1-self.special_tokens_mask).unsqueeze(-1)
+        if self.one_token_type:
+            self.token_type_mask = self.xb[0].pop('token_type_ids', None)
+            if self.token_type_mask is not None:
+                # this would deterministically mask tokens of type 0
+                self.token_type_mask = self.token_type_mask.unsqueeze(-1)
+
     def after_loss(self):
         if self.epoch >= self.start_epoch and self._do_vat:
             embed, logits = self.hook.stored, self.pred
             model = self.model.hf_model if hasattr(self.model, 'hf_model') else self.model
-            try:    adv_loss = self.adv_loss_func(model, embed, logits)
+            try:    adv_loss = self.adv_loss_func(model, embed, logits, self.special_tokens_mask, self.token_type_mask)
             except TypeError as e:
                 print("Your model is probably not supported, make sure model interface is compatible with HF pretrained models")
                 adv_loss, self._do_vat = 0, False
