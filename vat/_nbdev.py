@@ -4,6 +4,7 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"hook_out": "00_core.ipynb",
          "KL": "00_core.ipynb",
+         "SymmetrizedKL": "00_core.ipynb",
          "adv_project": "00_core.ipynb",
          "compute_adversarial_loss": "00_core.ipynb",
          "ALUMCallback": "00_core.ipynb",
