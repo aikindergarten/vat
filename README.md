@@ -12,7 +12,7 @@ pip install git+git://github.com/aikindergarten/vat.git
 
 wip...
 
-```python
+```
 4 + 2 == 42
 ```
 
