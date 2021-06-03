@@ -2,7 +2,8 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"hook_out": "00_core.ipynb",
+index = {"LossCallback": "00_core.ipynb",
+         "hook_out": "00_core.ipynb",
          "KL": "00_core.ipynb",
          "SymmetrizedKL": "00_core.ipynb",
          "adv_project": "00_core.ipynb",
@@ -10,9 +11,13 @@ index = {"hook_out": "00_core.ipynb",
          "ALUMCallback": "00_core.ipynb",
          "update_ema_model": "00_core.ipynb",
          "SMARTCallback": "00_core.ipynb",
-         "VATCallback": "00_core.ipynb"}
+         "VATCallback": "00_core.ipynb",
+         "train_only_metrics": "01_utils.ipynb",
+         "Recorder.add_train_metrics": "01_utils.ipynb",
+         "WandbCallback": "01_utils.ipynb"}
 
-modules = ["core.py"]
+modules = ["core.py",
+           "utils.py"]
 
 doc_url = "https://aikindergarten.github.io/vat/"
 

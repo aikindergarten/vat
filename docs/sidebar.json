@@ -1,6 +1,7 @@
 {
   "vat": {
     "Overview": "/",
-    "VAT": "core.html"
+    "VAT": "core.html",
+    "VAT utils": "utils.html"
   }
 }

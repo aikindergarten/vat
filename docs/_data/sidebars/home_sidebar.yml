@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: VAT
       url: core.html
+    - output: web,pdf
+      title: VAT utils
+      url: utils.html
     output: web
     title: vat
   output: web

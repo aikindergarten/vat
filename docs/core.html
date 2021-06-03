@@ -36,6 +36,38 @@ nb_path: "nbs/00_core.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="LossCallback" class="doc_header"><code>class</code> <code>LossCallback</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L12" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>LossCallback</code>(<strong><code>after_create</code></strong>=<em><code>None</code></em>, <strong><code>before_fit</code></strong>=<em><code>None</code></em>, <strong><code>before_epoch</code></strong>=<em><code>None</code></em>, <strong><code>before_train</code></strong>=<em><code>None</code></em>, <strong><code>before_batch</code></strong>=<em><code>None</code></em>, <strong><code>after_pred</code></strong>=<em><code>None</code></em>, <strong><code>after_loss</code></strong>=<em><code>None</code></em>, <strong><code>before_backward</code></strong>=<em><code>None</code></em>, <strong><code>before_step</code></strong>=<em><code>None</code></em>, <strong><code>after_cancel_step</code></strong>=<em><code>None</code></em>, <strong><code>after_step</code></strong>=<em><code>None</code></em>, <strong><code>after_cancel_batch</code></strong>=<em><code>None</code></em>, <strong><code>after_batch</code></strong>=<em><code>None</code></em>, <strong><code>after_cancel_train</code></strong>=<em><code>None</code></em>, <strong><code>after_train</code></strong>=<em><code>None</code></em>, <strong><code>before_validate</code></strong>=<em><code>None</code></em>, <strong><code>after_cancel_validate</code></strong>=<em><code>None</code></em>, <strong><code>after_validate</code></strong>=<em><code>None</code></em>, <strong><code>after_cancel_epoch</code></strong>=<em><code>None</code></em>, <strong><code>after_epoch</code></strong>=<em><code>None</code></em>, <strong><code>after_cancel_fit</code></strong>=<em><code>None</code></em>, <strong><code>after_fit</code></strong>=<em><code>None</code></em>) :: <code>Callback</code></p>
+</blockquote>
+<p>Base class for loss-computing callbacks</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="ALUM">ALUM<a class="anchor-link" href="#ALUM"> </a></h2><p>Adversarial training for large neural language models as presented in <a href="https://arxiv.org/abs/2004.08994">https://arxiv.org/abs/2004.08994</a>.</p>
@@ -54,7 +86,7 @@ nb_path: "nbs/00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="hook_out" class="doc_header"><code>hook_out</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L12" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>hook_out</code>(<strong><code>m</code></strong>, <strong><code>inp</code></strong>, <strong><code>out</code></strong>)</p>
+<h4 id="hook_out" class="doc_header"><code>hook_out</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L21" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>hook_out</code>(<strong><code>m</code></strong>, <strong><code>inp</code></strong>, <strong><code>out</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -85,7 +117,7 @@ nb_path: "nbs/00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="KL" class="doc_header"><code>KL</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>KL</code>(<strong><code>inp</code></strong>, <strong><code>targ</code></strong>, <strong><code>reduction</code></strong>=<em><code>'sum'</code></em>)</p>
+<h4 id="KL" class="doc_header"><code>KL</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L25" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>KL</code>(<strong><code>inp</code></strong>, <strong><code>targ</code></strong>, <strong><code>reduction</code></strong>=<em><code>'sum'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -116,7 +148,7 @@ nb_path: "nbs/00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="SymmetrizedKL" class="doc_header"><code>SymmetrizedKL</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>SymmetrizedKL</code>(<strong><code>inp</code></strong>, <strong><code>targ</code></strong>, <strong><code>reduction</code></strong>=<em><code>'sum'</code></em>)</p>
+<h4 id="SymmetrizedKL" class="doc_header"><code>SymmetrizedKL</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L31" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>SymmetrizedKL</code>(<strong><code>inp</code></strong>, <strong><code>targ</code></strong>, <strong><code>reduction</code></strong>=<em><code>'sum'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -147,7 +179,7 @@ nb_path: "nbs/00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="adv_project" class="doc_header"><code>adv_project</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L26" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>adv_project</code>(<strong><code>grad</code></strong>, <strong><code>norm_type</code></strong>=<em><code>'inf'</code></em>, <strong><code>eps</code></strong>=<em><code>1e-06</code></em>)</p>
+<h4 id="adv_project" class="doc_header"><code>adv_project</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L35" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>adv_project</code>(<strong><code>grad</code></strong>, <strong><code>norm_type</code></strong>=<em><code>'inf'</code></em>, <strong><code>eps</code></strong>=<em><code>1e-06</code></em>)</p>
 </blockquote>
 
 </div>
@@ -178,7 +210,7 @@ nb_path: "nbs/00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="compute_adversarial_loss" class="doc_header"><code>compute_adversarial_loss</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L36" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>compute_adversarial_loss</code>(<strong><code>model</code></strong>:<code>Module</code>, <strong><code>embed</code></strong>:<code>Tensor</code>, <strong><code>logits</code></strong>:<code>Tensor</code>, <strong><code>special_tokens_mask</code></strong>=<em><code>None</code></em>, <strong><code>token_type_mask</code></strong>=<em><code>None</code></em>, <strong><code>noise_var</code></strong>:<code>float</code>=<em><code>1e-05</code></em>, <strong><code>step_size</code></strong>:<code>float</code>=<em><code>0.001</code></em>, <strong><code>k</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>noise_gamma</code></strong>:<code>float</code>=<em><code>1e-06</code></em>, <strong><code>criterion</code></strong>=<em><code>SymmetrizedKL</code></em>)</p>
+<h4 id="compute_adversarial_loss" class="doc_header"><code>compute_adversarial_loss</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L45" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>compute_adversarial_loss</code>(<strong><code>model</code></strong>:<code>Module</code>, <strong><code>embed</code></strong>:<code>Tensor</code>, <strong><code>logits</code></strong>:<code>Tensor</code>, <strong><code>special_tokens_mask</code></strong>=<em><code>None</code></em>, <strong><code>token_type_mask</code></strong>=<em><code>None</code></em>, <strong><code>noise_var</code></strong>:<code>float</code>=<em><code>1e-05</code></em>, <strong><code>step_size</code></strong>:<code>float</code>=<em><code>0.001</code></em>, <strong><code>k</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>noise_gamma</code></strong>:<code>float</code>=<em><code>1e-06</code></em>, <strong><code>criterion</code></strong>=<em><code>SymmetrizedKL</code></em>)</p>
 </blockquote>
 <p>Computes adversarial loss on iteratively refined perturbation</p>
 
@@ -210,7 +242,7 @@ nb_path: "nbs/00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ALUMCallback" class="doc_header"><code>class</code> <code>ALUMCallback</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L67" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ALUMCallback</code>(<strong><code>m</code></strong>:<code>Module</code>, <strong><code>alpha</code></strong>:<code>float</code>=<em><code>1.0</code></em>, <strong><code>start_epoch</code></strong>:<code>int</code>=<em><code>0</code></em>, <strong><code>criterion</code></strong>=<em><code>None</code></em>, <strong><code>mask_special_tokens</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>one_token_type</code></strong>=<em><code>False</code></em>, <strong><code>special_tokens_mask</code></strong>=<em><code>None</code></em>, <strong><code>token_type_mask</code></strong>=<em><code>None</code></em>, <strong><code>noise_var</code></strong>:<code>float</code>=<em><code>1e-05</code></em>, <strong><code>step_size</code></strong>:<code>float</code>=<em><code>0.001</code></em>, <strong><code>k</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>noise_gamma</code></strong>:<code>float</code>=<em><code>1e-06</code></em>) :: <code>Callback</code></p>
+<h2 id="ALUMCallback" class="doc_header"><code>class</code> <code>ALUMCallback</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L76" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ALUMCallback</code>(<strong><code>m</code></strong>:<code>Module</code>, <strong><code>alpha</code></strong>:<code>float</code>=<em><code>1.0</code></em>, <strong><code>start_epoch</code></strong>:<code>int</code>=<em><code>0</code></em>, <strong><code>criterion</code></strong>=<em><code>None</code></em>, <strong><code>mask_special_tokens</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>one_token_type</code></strong>=<em><code>False</code></em>, <strong><code>special_tokens_mask</code></strong>=<em><code>None</code></em>, <strong><code>token_type_mask</code></strong>=<em><code>None</code></em>, <strong><code>noise_var</code></strong>:<code>float</code>=<em><code>1e-05</code></em>, <strong><code>step_size</code></strong>:<code>float</code>=<em><code>0.001</code></em>, <strong><code>k</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>noise_gamma</code></strong>:<code>float</code>=<em><code>1e-06</code></em>) :: <a href="/vat/core.html#LossCallback"><code>LossCallback</code></a></p>
 </blockquote>
 <p>ALUM callback for HuggingFace pretrained models</p>
 
@@ -285,14 +317,14 @@ nb_path: "nbs/00_core.ipynb"
   <tbody>
     <tr>
       <td>0</td>
-      <td>12.513041</td>
-      <td>9.050359</td>
+      <td>11.263165</td>
+      <td>10.850156</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>10.962384</td>
-      <td>8.762025</td>
+      <td>10.396017</td>
+      <td>9.291542</td>
       <td>00:00</td>
     </tr>
   </tbody>
@@ -334,7 +366,7 @@ Your model is probably not supported, make sure model interface is compatible wi
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="update_ema_model" class="doc_header"><code>update_ema_model</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L115" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>update_ema_model</code>(<strong><code>ema_model</code></strong>:<code>Module</code>, <strong><code>model</code></strong>:<code>Module</code>, <strong><code>mom</code></strong>:<code>float</code>=<em><code>0.99</code></em>)</p>
+<h4 id="update_ema_model" class="doc_header"><code>update_ema_model</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L126" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>update_ema_model</code>(<strong><code>ema_model</code></strong>:<code>Module</code>, <strong><code>model</code></strong>:<code>Module</code>, <strong><code>mom</code></strong>:<code>float</code>=<em><code>0.99</code></em>)</p>
 </blockquote>
 <p>Updates <code>ema_model</code> parameters with online <code>model</code> parameters using momentum <code>mom</code></p>
 
@@ -358,7 +390,7 @@ Your model is probably not supported, make sure model interface is compatible wi
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Algorithm">Algorithm<a class="anchor-link" href="#Algorithm"> </a></h3><p><strong>Notation:</strong><br>
-$ g_i(\tilde{x_i}, \bar{\theta_i} = \frac{1}{|\mathcal{B}|}\sum_{x_i \in \mathcal{B}} {\{\nabla_x \ell_s (\mathcal{f}(x_i; \bar{\theta_s}), \mathcal{f}(\tilde{x_i}; \bar{\theta_s}))} $;<br>
+$ g_i(\tilde{x_i}, \bar{\theta_i}) = \frac{1}{|\mathcal{B}|}\sum_{x_i \in \mathcal{B}} {\{\nabla_x \ell_s (\mathcal{f}(x_i; \bar{\theta}_s), \mathcal{f}(\tilde{x_i}; \bar{\theta}_s))} $;<br>
 $AdamUpdate_{\mathcal B}$ - ADAM update  for optimizing;<br>
 $\Pi_{\mathcal A}$ - prjection to $\mathcal A$</p>
 <p><strong>Input:</strong> $T$: total number of iterations, $\mathcal X$: the dataset, $\theta_0$: pre-trained model parameters, $S$: total number of iterations for Bregman proximal point method, $\sigma^2$: variance for random initialization of perturbation, $T_{\bar{x}}$number of iterations for updating $\tilde{x_i}$, $\eta$: lr for updating $\tilde{x_i}$, $\beta$: momentum parameter.</p>
@@ -372,10 +404,10 @@ $\Pi_{\mathcal A}$ - prjection to $\mathcal A$</p>
 08: $\quad \quad \quad$ $\tilde{g_i} \leftarrow \frac{g_i(\tilde{x_i},\bar{\theta_s})}{\|g_i(\tilde{x_i},\bar{\theta_s})\|_\infty} $<br>
 09: $\quad \quad \quad$ $\tilde{x_i} \leftarrow \Pi_{\|\tilde{x_i}-x\|_\infty \le \epsilon}(\tilde{x_i} + \eta \tilde{g_i})$<br>
 10: $\quad \quad$ <strong>end for</strong><br>
-11: $\quad \quad$ $\bar{\theta}_{s+1} \leftarrow AdamUpdate_\mathcal{B} (\bar{\theta_s})$<br>
+11: $\quad \quad$ $\bar{\theta}_{s+1} \leftarrow AdamUpdate_\mathcal{B} (\bar{\theta}_s)$<br>
 12: $\quad$ <strong>end for</strong><br>
-13: $\quad$ $\theta_t \leftarrow \bar{\theta_{S}}$<br>
-14: $\quad$ $\tilde{\theta_{t+1}} \leftarrow $<br>
+13: $\quad$ $\theta_t \leftarrow \bar{\theta}_{S}$<br>
+14: $\quad$ $\tilde{\theta}_{t+1} \leftarrow $<br>
 15: <strong>end for</strong></p>
 <p><strong>Output:</strong> $\theta_T$</p>
 
@@ -393,7 +425,7 @@ $\Pi_{\mathcal A}$ - prjection to $\mathcal A$</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="SMARTCallback" class="doc_header"><code>class</code> <code>SMARTCallback</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L123" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SMARTCallback</code>(<strong><code>m</code></strong>:<code>Module</code>, <strong><code>alpha</code></strong>:<code>float</code>=<em><code>1.0</code></em>, <strong><code>mu</code></strong>:<code>float</code>=<em><code>1.0</code></em>, <strong><code>start_epoch</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>criterion</code></strong>=<em><code>None</code></em>, <strong><code>mask_special_tokens</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>one_token_type</code></strong>=<em><code>False</code></em>, <strong><code>special_tokens_mask</code></strong>=<em><code>None</code></em>, <strong><code>token_type_mask</code></strong>=<em><code>None</code></em>, <strong><code>noise_var</code></strong>:<code>float</code>=<em><code>1e-05</code></em>, <strong><code>step_size</code></strong>:<code>float</code>=<em><code>0.001</code></em>, <strong><code>k</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>noise_gamma</code></strong>:<code>float</code>=<em><code>1e-06</code></em>) :: <code>Callback</code></p>
+<h2 id="SMARTCallback" class="doc_header"><code>class</code> <code>SMARTCallback</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L134" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SMARTCallback</code>(<strong><code>m</code></strong>:<code>Module</code>, <strong><code>alpha</code></strong>:<code>float</code>=<em><code>1.0</code></em>, <strong><code>mu</code></strong>:<code>float</code>=<em><code>1.0</code></em>, <strong><code>start_epoch</code></strong>:<code>int</code>=<em><code>0</code></em>, <strong><code>criterion</code></strong>=<em><code>None</code></em>, <strong><code>mask_special_tokens</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>one_token_type</code></strong>=<em><code>False</code></em>, <strong><code>special_tokens_mask</code></strong>=<em><code>None</code></em>, <strong><code>token_type_mask</code></strong>=<em><code>None</code></em>, <strong><code>noise_var</code></strong>:<code>float</code>=<em><code>1e-05</code></em>, <strong><code>step_size</code></strong>:<code>float</code>=<em><code>0.001</code></em>, <strong><code>k</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>noise_gamma</code></strong>:<code>float</code>=<em><code>1e-06</code></em>) :: <a href="/vat/core.html#LossCallback"><code>LossCallback</code></a></p>
 </blockquote>
 <p>SMART callback for HuggingFace pretrained models.</p>
 <p>Combines smoothness-inducing adversarial training and
@@ -470,14 +502,14 @@ momentum accelerated Bregman proximal point optimization.</p>
   <tbody>
     <tr>
       <td>0</td>
-      <td>11.707832</td>
-      <td>12.281952</td>
+      <td>12.511720</td>
+      <td>9.756591</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>10.759833</td>
-      <td>9.625895</td>
+      <td>11.275883</td>
+      <td>8.746477</td>
       <td>00:00</td>
     </tr>
   </tbody>
@@ -489,7 +521,7 @@ momentum accelerated Bregman proximal point optimization.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Starting virtual adversarial training at epoch 1
+<pre>Starting virtual adversarial training at epoch 0
 Your model is probably not supported, make sure model interface is compatible with HF pretrained models
 </pre>
 </div>
@@ -512,7 +544,7 @@ Your model is probably not supported, make sure model interface is compatible wi
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="VATCallback" class="doc_header"><code>class</code> <code>VATCallback</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L183" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>VATCallback</code>(<strong><code>start_iter</code></strong>=<em><code>None</code></em>) :: <code>Callback</code></p>
+<h2 id="VATCallback" class="doc_header"><code>class</code> <code>VATCallback</code><a href="https://github.com/aikindergarten/vat/tree/master/vat/core.py#L198" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>VATCallback</code>(<strong><code>start_iter</code></strong>=<em><code>None</code></em>) :: <a href="/vat/core.html#LossCallback"><code>LossCallback</code></a></p>
 </blockquote>
 <p>VAT callback (draft)</p>
 
@@ -529,77 +561,6 @@ Your model is probably not supported, make sure model interface is compatible wi
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">learn</span> <span class="o">=</span> <span class="n">synth_learner</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">cbs</span><span class="o">=</span><span class="n">VATCallback</span><span class="p">())</span>
-<span class="n">learn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th>epoch</th>
-      <th>train_loss</th>
-      <th>valid_loss</th>
-      <th>time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>12.143348</td>
-      <td>10.659672</td>
-      <td>00:00</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre> 0 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 13.0991
- 1 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 11.0062
- 2 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 12.8479
- 3 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 11.7874
- 4 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 17.0866
- 5 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 10.6400
- 6 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 12.7215
- 7 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 11.6827
- 8 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 11.3396
- 9 - Do stuff here with input of shape torch.Size([16, 1]) and logits torch.Size([16, 1]) and modify loss 9.6221
-</pre>
-</div>
-</div>
-
-</div>
-</div>
 
 </div>
     {% endraw %}
