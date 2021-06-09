@@ -199,6 +199,25 @@ nb_path: "nbs/00_core.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Algorithm">Algorithm<a class="anchor-link" href="#Algorithm"> </a></h3><p><strong>Input:</strong> $T$: total number of iterations, $\mathcal X$: the dataset, $f(x; \theta)$: model parameterized by $\theta$, $\sigma^2$: variance for random initialization of perturbation $\delta$, $\epsilon$: perturbation bound, $K$: number of iterations for updating $\delta$, $\eta$: lr for updating $\delta$, $\tau$: global learning rate, $\alpha$: adversarial loss weight, $\Pi$: projection operation.</p>
+<p>01: <strong>for</strong> $t = 1,...,T$ <strong>do</strong><br>
+02: $\quad$ <strong>for</strong> $(x,y) \in \mathcal X$ <strong>do</strong><br>
+03: $\quad \quad$ $\delta \sim \mathcal{N} (0, \sigma^2 I)$<br>
+04: $\quad \quad$ <strong>for</strong> $m = 1,...,K$ <strong>do</strong><br>
+05: $\quad \quad \quad$ $g_{adv} \leftarrow \Delta_\delta l(f(x;\theta), f(x+\delta; \theta)) $<br>
+06: $\quad \quad \quad$ $\delta \leftarrow \Pi_{\|\delta\|_\infty \le \epsilon}(\delta + \eta g_{adv})$<br>
+07: $\quad \quad$ <strong>end for</strong><br>
+08: $\quad \quad$ $g_\theta \leftarrow \Delta_\theta l(f(x;\theta), y) + \alpha \Delta_\theta l(f(x;\theta), f(x+\delta;\theta))$<br>
+09: $\quad \quad$ $\theta \leftarrow \theta - \tau g_\theta$<br>
+10: $\quad$ <strong>end for</strong><br>
+11: <strong>end for</strong></p>
+<p><strong>Output:</strong> $\theta$</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -391,15 +410,15 @@ Your model is probably not supported, make sure model interface is compatible wi
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Algorithm">Algorithm<a class="anchor-link" href="#Algorithm"> </a></h3><p><strong>Notation:</strong><br>
 $ g_i(\tilde{x_i}, \bar{\theta_i}) = \frac{1}{|\mathcal{B}|}\sum_{x_i \in \mathcal{B}} {\{\nabla_x \ell_s (\mathcal{f}(x_i; \bar{\theta}_s), \mathcal{f}(\tilde{x_i}; \bar{\theta}_s))} $;<br>
-$AdamUpdate_{\mathcal B}$ - ADAM update  for optimizing;<br>
+$AdamUpdate_{\mathcal B}$ - ADAM update  for optimizing $\theta_{t+1} = argmin_\theta \mathcal F(\theta) + \mu \mathcal{D}_{Breg}(\theta, \tilde{\theta}_t)$;<br>
 $\Pi_{\mathcal A}$ - prjection to $\mathcal A$</p>
 <p><strong>Input:</strong> $T$: total number of iterations, $\mathcal X$: the dataset, $\theta_0$: pre-trained model parameters, $S$: total number of iterations for Bregman proximal point method, $\sigma^2$: variance for random initialization of perturbation, $T_{\bar{x}}$number of iterations for updating $\tilde{x_i}$, $\eta$: lr for updating $\tilde{x_i}$, $\beta$: momentum parameter.</p>
 <p>01: $\tilde{\theta_1} \leftarrow \theta_0$<br>
 02: <strong>for</strong> $t = 1,...,T$ <strong>do</strong><br>
-03: $\quad$ $\bar{\theta_1} \leftarrow \theta_t-1$<br>
+03: $\quad$ $\bar{\theta}_1 \leftarrow \theta_{t-1}$<br>
 04: $\quad$ <strong>for</strong> $s = 1,...,S$ <strong>do</strong><br>
 05: $\quad \quad$ Sample $\mathcal{B}$ from $\mathcal X$<br>
-06: $\quad \quad$ $\tilde{x_i} \leftarrow x_i + \nu_i$ where $\nu_i ~ \mathcal{N} (0, \sigma^2$<br>
+06: $\quad \quad$ $\tilde{x_i} \leftarrow x_i + \nu_i$ where $\nu_i ~ \mathcal{N} (0, \sigma^2)$<br>
 07: $\quad \quad$ <strong>for</strong> $m = 1,...,T_\bar{x}$ <strong>do</strong><br>
 08: $\quad \quad \quad$ $\tilde{g_i} \leftarrow \frac{g_i(\tilde{x_i},\bar{\theta_s})}{\|g_i(\tilde{x_i},\bar{\theta_s})\|_\infty} $<br>
 09: $\quad \quad \quad$ $\tilde{x_i} \leftarrow \Pi_{\|\tilde{x_i}-x\|_\infty \le \epsilon}(\tilde{x_i} + \eta \tilde{g_i})$<br>
@@ -407,7 +426,7 @@ $\Pi_{\mathcal A}$ - prjection to $\mathcal A$</p>
 11: $\quad \quad$ $\bar{\theta}_{s+1} \leftarrow AdamUpdate_\mathcal{B} (\bar{\theta}_s)$<br>
 12: $\quad$ <strong>end for</strong><br>
 13: $\quad$ $\theta_t \leftarrow \bar{\theta}_{S}$<br>
-14: $\quad$ $\tilde{\theta}_{t+1} \leftarrow $<br>
+14: $\quad$ $\tilde{\theta}_{t+1} \leftarrow (1-\beta) \bar{\theta}_{S} + \beta \tilde{\theta}_t$<br>
 15: <strong>end for</strong></p>
 <p><strong>Output:</strong> $\theta_T$</p>
 

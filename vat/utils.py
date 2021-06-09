@@ -24,7 +24,10 @@ def add_train_metrics(self:Recorder, *metrics):
     self._train_only_metrics += L(*metrics)
 
 # Cell
-import wandb
+try:
+    import wandb
+except ImportError:
+    pass
 from fastai.callback.wandb import *
 from fastai.callback.wandb import _make_plt, _format_config_value, _format_config, _format_metadata
 
