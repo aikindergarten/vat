@@ -26,10 +26,10 @@ def add_train_metrics(self:Recorder, *metrics):
 # Cell
 try:
     import wandb
+    from fastai.callback.wandb import *
+    from fastai.callback.wandb import _make_plt, _format_config_value, _format_config, _format_metadata
 except ImportError:
     pass
-from fastai.callback.wandb import *
-from fastai.callback.wandb import _make_plt, _format_config_value, _format_config, _format_metadata
 
 class WandbCallback(Callback):
     "Saves model topology, losses & metrics"
