@@ -154,28 +154,24 @@ class SMARTCallback(LossCallback):
         self.kwargs = kwargs if kwargs else {}
         self._do_vat=True
         self.mom = 0.99
-        self.corr = start_epoch/self.n_epoch # used to correctly change `mom` when start_epoch != 0
         self.special_tokens_mask, self.token_type_mask = None, None
         store_attr()
 
     def before_fit(self):
-#         "Create and freeze EMA model"
-#         self.ema_model = deepcopy(self.model)
-#         self.ema_model.eval()
-#         self.ema_model.requires_grad_(False)
-
+        self.corr = self.start_epoch/self.n_epoch # used to correctly change `mom` when start_epoch != 0
         if self.criterion is None:
             self.criterion = MSELoss() if isinstance(self.loss_func, nn.MSELoss) else SymmetrizedKL
         self.adv_loss_func = partial(compute_adversarial_loss, criterion=self.criterion, **self.kwargs)
 
     def before_batch(self):
         if self.epoch >= self.start_epoch:
-            if self.hook is None: self.hook = Hook(self.m, hook_out)
+            if self.hook is None:
+                self.hook = Hook(self.m, hook_out)
+                print(f'Starting virtual adversarial training at epoch {self.epoch}')
             if self.ema_model is None:
                 self.ema_model = deepcopy(self.model)
                 self.ema_model.eval()
                 self.ema_model.requires_grad_(False)
-            print(f'Starting virtual adversarial training at epoch {self.epoch}')
         if (self.mom == 0.99) & (self.pct_train >= (self.corr - 0.1*(1-self.corr))):
             self.mom = 0.999
 
@@ -204,7 +200,8 @@ class SMARTCallback(LossCallback):
             self.log_loss(0, 'breg_loss')
 
     def after_step(self):
-        update_ema_model(self.ema_model, self.model, self.mom)
+        if self.epoch >= self.start_epoch and self._do_vat:
+            update_ema_model(self.ema_model, self.model, self.mom)
 
     def after_fit(self):
         if self.hook is not None: self.hook.remove()
