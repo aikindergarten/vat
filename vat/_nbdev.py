@@ -2,7 +2,8 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"LossCallback": "00_core.ipynb",
+index = {"mb_item": "00_core.ipynb",
+         "LossCallback": "00_core.ipynb",
          "hook_out": "00_core.ipynb",
          "KL": "00_core.ipynb",
          "SymmetrizedKL": "00_core.ipynb",
